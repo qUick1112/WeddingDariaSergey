@@ -1,4 +1,4 @@
-
+html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -24,7 +24,7 @@
             position: relative;
         }
 
-        /* ТОЛЬКО СЕРДЕЧКИ НА ФОНЕ (без цветочков) */
+        /* ТОЛЬКО СЕРДЕЧКИ НА ФОНЕ */
         body::before {
             content: "";
             position: fixed;
@@ -33,9 +33,7 @@
             width: 100%;
             height: 100%;
             background-image: 
-                /* Сердечки - крупные */
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path fill="%23f5a0b0" opacity="0.18" d="M30,52 L30,52 L18,38 Q12,32 12,26 Q12,18 18,14 Q24,10 30,18 Q36,10 42,14 Q48,18 48,26 Q48,32 42,38 L30,52Z"/></svg>'),
-                /* Сердечки - маленькие */
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35"><path fill="%23f0b0c0" opacity="0.15" d="M17.5,30 L17.5,30 L10,22 Q7,19 7,15 Q7,11 10,9 Q13,7 17.5,12 Q22,7 25,9 Q28,11 28,15 Q28,19 25,22 L17.5,30Z"/></svg>');
             background-repeat: repeat;
             background-size: 90px, 50px;
@@ -329,6 +327,7 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        /* БЛОК ПОДТВЕРЖДЕНИЯ - КНОПКА GOOGLE ФОРМЫ */
         .rsvp-box {
             background: rgba(217, 228, 245, 0.8);
             color: #4a4e69;
@@ -361,20 +360,35 @@
             color: #1E3A6F;
         }
 
-        .contact-numbers {
-            margin-top: 25px;
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            border-radius: 20px;
+        /* КНОПКА ДЛЯ ПЕРЕХОДА В GOOGLE ФОРМУ */
+        .google-form-btn {
             display: inline-block;
+            background: #1E3A6F;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 60px;
+            text-decoration: none;
             font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
         }
 
-        .contact-numbers p {
-            margin: 8px 0;
+        .google-form-btn:hover {
+            background: #2c5282;
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
+        .google-form-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ФУТЕР С ДВУМЯ НОМЕРАМИ */
         .footer {
             text-align: center;
             padding: 30px;
@@ -383,6 +397,10 @@
             font-family: 'Montserrat', sans-serif;
             position: relative;
             z-index: 1;
+        }
+
+        .footer p {
+            margin: 5px 0;
         }
 
         .footer-last {
@@ -413,6 +431,7 @@
             .gallery img { height: 180px; }
             .deadline { font-size: 1.2rem; }
             .rsvp-box h3 { font-size: 2rem; }
+            .google-form-btn { padding: 12px 25px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -541,6 +560,7 @@
             <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">📱 Нажмите на фото, чтобы увеличить</p>
         </div>
 
+        <!-- ТРАНСФЕР - ТЕПЕРЬ С ДВУМЯ НОМЕРАМИ -->
         <div class="section">
             <div class="section-title">
                 <h2>Трансфер</h2>
@@ -550,11 +570,14 @@
                 <p style="font-size: 1.2rem; margin: 10px 0;"><strong>✅ Да, будет!</strong></p>
                 <p>Напишите нам, если он вам потребуется.</p>
                 <div class="transfer-contact">
-                    📞 По вопросам трансфера: +7 915 618-39-85 (Сергей)
+                    📞 По вопросам трансфера:<br>
+                    Сергей +7 915 618-39-85<br>
+                    Дарья +7 915 910-90-03
                 </div>
             </div>
         </div>
 
+        <!-- БЛОК ПОДТВЕРЖДЕНИЯ С КНОПКОЙ GOOGLE ФОРМЫ -->
         <div class="section">
             <div class="section-title">
                 <h2>Подтвердите присутствие</h2>
@@ -564,17 +587,22 @@
                 <div class="deadline">26 июля 2026 года</div>
                 <p style="margin-top: 20px;">Это поможет нам организовать праздник максимально комфортно для всех.</p>
                 
-                <div class="contact-numbers">
-                    <p>📞 Напишите или позвоните для подтверждения:</p>
-                    <p><strong>+7 915 618-39-85 (Сергей)</strong></p>
-                    <p><strong>+7 915 910 90 03 (Дарья)</strong></p>
-                </div>
+                <!-- КНОПКА-ССЫЛКА НА GOOGLE ФОРМУ -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiX_HPiTuFOMv0448957zktX65HTyqxKHnppU4PKHTVQ-F3Q/viewform" 
+                   class="google-form-btn" 
+                   target="_blank">
+                    📝 Подтвердить участие
+                </a>
+                
+                <p style="margin-top: 20px; font-size: 0.9rem;">Нажмите на кнопку, чтобы перейти к форме</p>
             </div>
         </div>
     </div>
 
+    <!-- ФУТЕР С НОМЕРАМИ СЕРГЕЯ И ДАРЬИ -->
     <div class="footer">
-        <p>По всем вопросам: Сергей +7 915 618-39-85</p>
+        <p>📞 По всем вопросам:</p>
+        <p>Сергей +7 915 618-39-85 | Дарья +7 915 910-90-03</p>
     </div>
 
     <div class="footer-last">
